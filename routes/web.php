@@ -28,12 +28,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth.admin'], 'as' => 'admi
     Route::delete('/proses-delete-film/{id}', [FilmController::class, 'proses_delete_film'])->name('proses-delete-film');
 });
 
-//ini untuk login user dan register user
+// Routes untuk login user dan register user
 Route::get('/login-user', [LoginController::class, 'login_user'])->name('login-user');
 Route::post('/login-proses-user', [LoginController::class, 'login_proses_user'])->name('login-proses-user');
 Route::get('/logout-user', [LoginController::class, 'logout_user'])->name('logout-user');
+Route::get('/register', [UserController::class, 'register'])->name('form-register');
+Route::post('/proses-register', [UserController::class, 'proses_register'])->name('proses-register');
 
-//ini middleware untuk user
-Route::group(['prefix' => 'user', 'middleware' => ['auth.user'], 'as' => 'user.'], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth.user', 'no.cache'], 'as' => 'user.'], function () {
     Route::get('/result-perbandingan', [UserController::class, 'result_perbandingan'])->name('result');
+    Route::get('/home', [UserController::class, 'home'])->name('home');
+    Route::get('/test-middleware', function () {
+        return 'Middleware bekerja!';
+    });
 });
+

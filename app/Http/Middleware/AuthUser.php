@@ -9,14 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthUser
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::guard('user')->check()) {
+        if (Auth::guard('user')->check()) {
             return $next($request);
         }
-        return redirect()->route('login-user')->withErrors('Anda belum login! silahkan login');
+        return redirect()->route('login-user')->withErrors(['Silakan login untuk mengakses halaman ini']);
     }
-
 }
 
 

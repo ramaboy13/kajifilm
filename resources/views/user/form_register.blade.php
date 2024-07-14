@@ -33,8 +33,8 @@
             background-image: url('https://www.admecindia.co.in/wp-content/uploads/2017/11/Types-of-movie-poster.jpg');
             background-size: cover;
             background-position: center center;
-            border-bottom-right-radius: 40px;
-            border-top-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+            border-top-left-radius: 40px;
         }
 
         .social-login a {
@@ -70,9 +70,6 @@
 
     <div class="container-fluid">
         <div class="row no-gutter">
-            <!-- The image half -->
-            <div class="col-md-6 d-none d-md-flex bg-image"></div>
-
             <!-- The content half -->
             <div class="col-md-6">
                 <div class="login d-flex align-items-center py-5">
@@ -82,10 +79,10 @@
                         <div class="row">
                             <div class="col-lg-10 col-xl-7 mx-auto">
                                 <h3 class="display-5 text-center text-white ">Welcome to <i
-                                        class="font-bold">KAJIFILM</i>
-                                </h3>
-                                <p class="text-muted mb-4 text-center">Silahkan Login untuk mencoba fitur platform kami
-                                </p>
+                                        class="font-bold">KAJIFILM</i></h3>
+                                <p class="text-muted mb-4 text-center">Untuk menikmati fitur website KAJIFILM silahkan
+                                    Sign Up
+                                    dulu</p>
                                 <!-- Ini code untuk alert kegagalan login -->
                                 @if ($errors->any())
                                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
@@ -97,23 +94,25 @@
                                     </div>
                                 @endif
                                 <!-- Ini code untuk form login -->
-                                <form action="{{ route('login-proses-user') }}" method="POST">
+                                <form action="{{ route('proses-register') }}" method="POST">
                                     @csrf
-
+                                    <div class="form-group mb-3">
+                                        <input type="nama" id="nama" name="nama" value="{{ old('nama') }}"
+                                            placeholder="Name" class="formku form-control border-0 shadow-sm px-4">
+                                    </div>
                                     <div class="form-group mb-3">
                                         <input type="email" id="email" name="email" value="{{ old('email') }}"
-                                            placeholder="Email address" required="" autofocus=""
+                                            placeholder="Email address"
                                             class="formku form-control border-0 shadow-sm px-4">
                                     </div>
                                     <div class="form-group mb-3">
                                         <input type="password" id="password" name="password" placeholder="Password"
-                                            required=""
-                                            class="formku form-control border-0 shadow-sm px-4 text-primary">
+                                            class=" formku form-control border-0 shadow-sm px-4 text-primary">
                                     </div>
-                                    <div class="custom-control custom-checkbox mb-3">
-                                        <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                        <label for="customCheck1" class="custom-control-label text-white">Remember
-                                            password</label>
+                                    <div class="form-group mb-3">
+                                        <input type="password" id="password_confirmation" name="password_confirmation"
+                                            placeholder="Confirm Password"
+                                            class="formku form-control border-0 shadow-sm px-4 text-primary" required>
                                     </div>
                                     <button type="submit"
                                         class="btn signin btn-primary btn-block text-uppercase mb-2 shadow-sm">Sign
@@ -123,21 +122,21 @@
                                     <div class="social-login">
                                         <a href="#"
                                             class="facebook btn d-flex justify-content-center align-items-center shadow-sm">
-                                            <i class="fab fa-facebook-f mr-3"></i> Sign in with Facebook
+                                            <i class="fab fa-facebook-f mr-3"></i> Sign Up with Facebook
                                         </a>
                                         <a href="#"
                                             class="apple btn d-flex justify-content-center align-items-center shadow-sm">
-                                            <i class="fab fa-apple mr-3"></i> Sign in with Apple
+                                            <i class="fab fa-apple mr-3"></i> Sign Up with Apple
                                         </a>
                                         <a href="#"
                                             class="google btn d-flex justify-content-center align-items-center shadow-sm">
-                                            <i class="fab fa-google mr-3"></i> Sign in with Google
+                                            <i class="fab fa-google mr-3"></i> Sign Up with Google
                                         </a>
                                     </div>
                                     <div class="text-center text-white d-flex justify-content-between mt-4">
-                                        <p>Belum punya account? <a href="{{ route('form-register') }}"
+                                        <p>Sudah Punya Akun? <a href="{{ route('login-user') }}"
                                                 class="font-italic font-bold ">
-                                                <u>Sign Up Now</u></a></p>
+                                                <u>Sign In Now</u></a></p>
                                     </div>
                                 </form>
                             </div>
@@ -147,6 +146,8 @@
                 </div>
             </div><!-- End -->
 
+            <!-- The image half -->
+            <div class="col-md-6 d-none d-md-flex bg-image"></div>
         </div>
     </div>
 

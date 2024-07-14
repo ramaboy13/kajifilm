@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -46,7 +47,8 @@ class LoginController extends Controller
     {
         return view('user/login');
     }
-    public function login_proses_user(Request $request) // Fungsi untuk login user
+
+    public function login_proses_user(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
@@ -55,17 +57,14 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-
         if (Auth::guard('user')->attempt($credentials)) {
-            // Jika Login user Berhasil
-            return redirect()->route('user.result');
+            return redirect()->route('user.home');
         } else {
             return redirect()->back()->withErrors(['Email dan Password salah']);
         }
     }
 
-
-    public function logout_user() // Fungsi untuk logout
+    public function logout_user()
     {
         Auth::guard('user')->logout();
         return redirect()->route('login-user');
