@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,13 +32,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth.admin'], 'as' => 'admi
 // Routes untuk login user dan register user
 Route::get('/login-user', [LoginController::class, 'login_user'])->name('login-user');
 Route::post('/login-proses-user', [LoginController::class, 'login_proses_user'])->name('login-proses-user');
-Route::get('/logout-user', [LoginController::class, 'logout_user'])->name('logout-user');
+Route::post('/logout-user', [LoginController::class, 'logout_user'])->name('logout-user');
 Route::get('/register', [UserController::class, 'register'])->name('form-register');
 Route::post('/proses-register', [UserController::class, 'proses_register'])->name('proses-register');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth.user', 'no.cache'], 'as' => 'user.'], function () {
     Route::get('/result-perbandingan', [UserController::class, 'result_perbandingan'])->name('result');
     Route::get('/home', [UserController::class, 'home'])->name('home');
+    Route::get('/detail-film/{id}', [FilmController::class, 'detail_film'])->name('detail-film');
+    Route::post('/film/{film}/ulasan', [UlasanController::class, 'store'])->name('ulasan-store');
     Route::get('/test-middleware', function () {
         return 'Middleware bekerja!';
     });

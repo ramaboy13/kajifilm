@@ -64,6 +64,7 @@ class LoginController extends Controller
         }
     }
 
+
     public function logout_user()
     {
         Auth::guard('user')->logout();

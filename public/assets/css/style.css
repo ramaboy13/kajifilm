@@ -1,0 +1,367 @@
+.heroku {
+    background-image: url("../../assets/inibckgrndasli.png"); /* Tambahkan tanda kutip pada URL */
+}
+
+.custom-bg {
+    background-color: #201658;
+}
+
+.custom-bcg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.075);
+    backdrop-filter: blur(15px);
+    z-index: 10;
+    padding: 1rem;
+}
+
+.custom-bg-hover:hover {
+    background-color: #180f4e;
+}
+
+.custom-bg-active:active {
+    background-color: #120a38;
+}
+
+.filmcard {
+    background-color: rgba(
+        169,
+        169,
+        169,
+        0.45
+    ); /* Gunakan rgba untuk transparansi */
+}
+.filmcard img {
+    display: block;
+    max-width: 100%;
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+.averagerating {
+    color: #fff;
+}
+
+.custom-hidden {
+    display: none;
+}
+
+.film-list {
+    background-color: #201658;
+}
+
+.footerku {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.footerku h2 {
+    font-size: 1.875rem; /* 3xl */
+    font-weight: 1000; /* Bold */
+    color: #b1b1b1; /* slate-700 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerku img {
+    height: 4rem; /* Adjust the size as needed */
+    width: 5rem;
+    margin-right: 0.5rem; /* Margin between logo and text */
+}
+
+.list-film {
+    padding-top: 120px;
+    background-color: #201658;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1,
+h2 {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: x-large;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-4,
+.col-md-6,
+.col-md-8 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-md-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.list-film {
+    padding-bottom: 30px;
+}
+
+.list-film img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.list-film h1,
+.list-film h2 {
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.list-film p {
+    color: #ffffff;
+    text-align: justify;
+}
+
+.list-film .badge {
+    background-color: #6c757d;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+}
+
+.rating-stars i {
+    color: #ffc107;
+    margin-right: 5px;
+}
+
+.rating-range label {
+    color: #ffffff;
+}
+
+.rating-range input[type="range"] {
+    width: 100%;
+}
+
+.review-section textarea {
+    width: 100%;
+    background-color: #333333;
+    border: 1px solid #444444;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.custom-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+.review-page {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-section .title {
+    color: #ffffff;
+    margin: 0;
+}
+
+.title-section .page-number {
+    color: #b3b3b3;
+}
+
+.review {
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.rating .stars {
+    font-size: 20px;
+    color: #ffc107;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.user-info img.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-details .user-name {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.user-details .user-review {
+    color: #b3b3b3;
+    margin-top: 5px;
+}
+
+.actions {
+    display: flex;
+    margin-top: 10px;
+}
+
+.actions button {
+    background-color: transparent;
+    border: 1px solid #444444;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.actions button:hover {
+    background-color: #444444;
+}
+
+.helpful-button svg {
+    fill: #ffc107;
+}
+
+.report-button svg {
+    fill: #ff4d4d;
+}
+
+.review .rating .upload-time {
+    color: #b3b3b3;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    #mobile-nav {
+        display: none; /* Sembunyikan pada mobile */
+    }
+
+    /* Active state */
+    #mobile-nav.active {
+        display: flex; /* Show when active */
+        flex-direction: column; /* Stack items vertically */
+        background-color: #201658; /* Background color */
+        padding: 1rem; /* Add padding */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    }
+
+    /* Styling for mobile links */
+    #mobile-nav a {
+        padding: 0.5rem 1rem; /* Add padding to links */
+        transition: background-color 0.3s; /* Smooth transition */
+    }
+
+    /* Hover effect for mobile links */
+    #mobile-nav a:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+    }
+
+    .col-md-4,
+    .col-md-6,
+    .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .custom-bg,
+    .filmcard,
+    .review-page {
+        padding: 10px;
+    }
+
+    .footerku h2 {
+        font-size: 1.5rem; /* Smaller footer heading */
+    }
+
+    .review-section textarea {
+        padding: 8px;
+    }
+
+    .custom-button {
+        width: 100%; /* Full-width button */
+        padding: 12px;
+    }
+
+    .rating-stars {
+        font-size: 18px; /* Slightly smaller star ratings */
+    }
+
+    .user-info img.profile-picture {
+        width: 40px;
+        height: 40px;
+    }
+
+    .user-details .user-name {
+        font-size: 1rem; /* Smaller font size for mobile */
+    }
+
+    .review {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .rating .stars {
+        font-size: 18px; /* Smaller star font size */
+    }
+
+    .actions button {
+        padding: 8px;
+    }
+
+    .list-film {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

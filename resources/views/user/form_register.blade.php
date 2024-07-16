@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Kajifilm' }}</title>
-    <link rel="icon" href="../assets/LOGO.png" type="image/png" />
+    <link rel="icon" href="../../assets/LOGO.png" type="image/png" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
         }
 
         .bg-image {
-            background-image: url('https://www.admecindia.co.in/wp-content/uploads/2017/11/Types-of-movie-poster.jpg');
+            background-image: url('./../assets/lg.jpg');
             background-size: cover;
             background-position: center center;
             border-bottom-left-radius: 40px;

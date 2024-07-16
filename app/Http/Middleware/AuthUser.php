@@ -17,5 +17,3 @@ class AuthUser
         return redirect()->route('login-user')->withErrors(['Silakan login untuk mengakses halaman ini']);
     }
 }
-
-

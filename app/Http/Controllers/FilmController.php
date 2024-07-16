@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
+use App\Models\UlasanModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FilmController extends Controller
 {
@@ -102,4 +104,20 @@ class FilmController extends Controller
         $film->delete();
         return redirect()->route('admin.table-film')->with('success', 'Film deleted successfully');
     }
+    public function detail_film($id)
+    {
+        $film = FilmModel::findOrFail($id);
+        $ulasans = UlasanModel::where('film_id', $id)->get();
+        $averageRating = $ulasans->avg('rating');
+        if (Auth::guard('user')->check()) {
+            // Jika user terautentikasi
+            $user = Auth::guard('user')->user();
+            // Mendapatkan pengguna yang terautentikasi
+            return view('user.detail_film', compact('film', 'ulasans', 'user', 'averageRating'));
+        } else {
+            // Jika tidak terautentikasi, redirect ke halaman login
+            return redirect()->route('login-user');
+        }
+    }
+
 }

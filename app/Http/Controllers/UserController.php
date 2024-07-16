@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FilmModel;
 use Illuminate\Http\Request;
 use App\Models\User; // Perbaikan di sini
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,10 +15,35 @@ class UserController extends Controller
     {
         return view('user/perbandingan');
     }
-    public function home()
+    public function home(Request $request)
     {
-        return view('user/home');
+        $category = $request->input('kategori');
+        $search = $request->input('search');
+        $query = FilmModel::query();
+
+        if ($category) {
+            $query->where('kategori', $category);
+        }
+
+        if ($search) {
+            $query->where('judul', 'LIKE', "%{$search}%");
+        }
+
+        $films = $query->paginate(10);
+
+        if (Auth::guard('user')->check()) {
+            // Jika user terautentikasi
+            $user = Auth::guard('user')->user();
+            // Mendapatkan pengguna yang terautentikasi
+
+            return view('user.home', compact('films', 'user'));
+        } else {
+            // Jika tidak terautentikasi, redirect ke halaman login
+            return redirect()->route('login-user');
+        }
     }
+
+
 
     public function register()
     {
