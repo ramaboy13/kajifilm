@@ -51,7 +51,7 @@
                             <img src="{{ asset('storage/' . $film->poster) }}" alt="{{ $film->poster }}"
                                 class="w-full h-auto object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-semibold">{{ $film->judul }}</h3> 
+                                <h3 class="text-xl font-semibold">{{ $film->judul }}</h3>
                                 <a href="{{ route('user.detail-film', $film->id) }}"
                                     class="block mt-4 hover:underline">Check Now!</a>
                             </div>

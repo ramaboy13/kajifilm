@@ -18,8 +18,8 @@
         <!-- Navigation Links -->
         <div id="nav-links" class="hidden md:flex space-x-8">
             <a href="{{ route('user.home') }}" class="text-gray-300 hover:text-white">Home</a>
-            <a href="#" class="text-gray-300 hover:text-white">Compare Film</a>
-            <a href="#" class="text-gray-300 hover:text-white">Forum Diskusi</a>
+            <a href="{{ route('user.form-compare') }}" class="text-gray-300 hover:text-white">Compare Film</a>
+            <a href="{{ route('user.forum-diskusi') }}" class="text-gray-300 hover:text-white">Forum Diskusi</a>
             <a href="#" id="help-link" class="text-gray-300 hover:text-white">Bantuan</a>
         </div>
 
@@ -47,8 +47,8 @@
     <!-- Mobile Navigation Links -->
     <div id="mobile-nav" class="hidden flex-col space-y-2 mt-4 md:hidden">
         <a href="{{ route('user.home') }}" class="text-gray-300 hover:text-white">Home</a>
-        <a href="#" class="text-gray-300 hover:text-white">Compare Film</a>
-        <a href="#" class="text-gray-300 hover:text-white">Forum Diskusi</a>
+        <a href="{{ route('user.form-compare') }}" class="text-gray-300 hover:text-white">Compare Film</a>
+        <a href="{{ route('user.forum-diskusi') }}" class="text-gray-300 hover:text-white">Forum Diskusi</a>
         <a href="#" id="help-link" class="text-gray-300 hover:text-white">Bantuan</a>
     </div>
 </nav>

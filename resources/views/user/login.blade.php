@@ -63,6 +63,15 @@
         .formku {
             border-radius: 10px;
         }
+
+        .alert-danger {
+            background-color: #ac1f00;
+            color: #ffffff;
+            border: 1px solid #000000;
+            padding: 1rem 1.5rem;
+            border-radius: 0.25rem;
+            position: relative;
+        }
     </style>
 </head>
 
@@ -88,14 +97,15 @@
                                 </p>
                                 <!-- Ini code untuk alert kegagalan login -->
                                 @if ($errors->any())
-                                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                                        role="alert">
+                                    <div class="alert-danger" role="alert">
                                         <strong class="font-bold">Upsss!</strong>
                                         @foreach ($errors->all() as $item)
                                             <span class="block sm:inline">{{ $item }}</span>
                                         @endforeach
                                     </div>
                                 @endif
+                                <br>
+
                                 <!-- Ini code untuk form login -->
                                 <form action="{{ route('login-proses-user') }}" method="POST">
                                     @csrf
@@ -118,7 +128,7 @@
                                     <button type="submit"
                                         class="btn signin btn-primary btn-block text-uppercase mb-2 shadow-sm">Sign
                                         in</button>
-                                    <span class="d-block text-center my-4 text-muted">——————————— or
+                                    <span class="d-block text-center my-4 text-muted">—————————— or
                                         ———————————</span>
                                     <div class="social-login">
                                         <a href="#"

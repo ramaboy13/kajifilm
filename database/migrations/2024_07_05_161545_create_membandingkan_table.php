@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('membandingkan', function (Blueprint $table) {
-            $table->id('bandingkanID');
-            $table->foreignId('userID')->constrained('users');
-            $table->foreignId('filmID')->constrained('films'); // Merujuk ke kolom id di tabel films
+            $table->id('bandingkan_id');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('film_id')->constrained('films'); // Merujuk ke kolom id di tabel films
             $table->timestamps();
         });
     }

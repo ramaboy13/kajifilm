@@ -9,6 +9,7 @@ class UlasanModel extends Model
 {
     use HasFactory;
     protected $table = 'mengulas';
+
     protected $fillable = [
         'rating',
         'ulasan',
@@ -18,15 +19,19 @@ class UlasanModel extends Model
         'cinematography',
         'ending',
         'film_id',
-        'user_id',  // Tambahkan ini
+        'user_id',
     ];
+
     public $timestamps = true;
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
     public function film()
     {
         return $this->belongsTo(FilmModel::class, 'film_id');
     }
 }
+

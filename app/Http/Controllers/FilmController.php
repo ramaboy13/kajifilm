@@ -120,4 +120,52 @@ class FilmController extends Controller
         }
     }
 
+    //fungsi untuk menampilkan form compare
+    public function form_compare(Request $request)
+    {
+        $search = $request->input('search');
+        $films = FilmModel::query();
+
+        if ($search) {
+            $films->where('judul', 'like', '%' . $search . '%');
+        }
+
+        if ($request->ajax()) {
+            return response()->json([
+                'films' => $films->get()
+            ]);
+        }
+
+        if (Auth::guard('user')->check()) {
+            $user = Auth::guard('user')->user();
+            return view('user.form_compare', compact('user'));
+        } else {
+            return redirect()->route('login-user');
+        }
+    }
+    public function compareProcess(Request $request)
+    {
+        $film1Id = $request->input('film1');
+        $film2Id = $request->input('film2');
+
+        $film1 = FilmModel::find($film1Id);
+        $film2 = FilmModel::find($film2Id);
+
+        // Jika salah satu film tidak ditemukan, kembalikan error atau redirect
+        if (!$film1 || !$film2) {
+            return redirect()->back()->with('error', 'Salah satu film tidak ditemukan.');
+        }
+
+        $ulasan1 = UlasanModel::where('film_id', $film1Id)->get();
+        $ulasan2 = UlasanModel::where('film_id', $film2Id)->get();
+
+        // Mengambil user yang sedang login
+        $user = Auth::guard('user')->user();
+
+        // Hitung rata-rata rating untuk setiap film
+        $film1AverageRating = $film1->averageRating();
+        $film2AverageRating = $film2->averageRating();
+
+        return view('user.result', compact('film1', 'film2', 'ulasan1', 'ulasan2', 'user', 'film1AverageRating', 'film2AverageRating'));
+    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
@@ -41,6 +42,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth.user', 'no.cache'], 'as
     Route::get('/home', [UserController::class, 'home'])->name('home');
     Route::get('/detail-film/{id}', [FilmController::class, 'detail_film'])->name('detail-film');
     Route::post('/film/{film}/ulasan', [UlasanController::class, 'store'])->name('ulasan-store');
+    Route::get('/form-compare', [FilmController::class, 'form_compare'])->name('form-compare');
+    Route::post('/compare-proses', [FilmController::class, 'compareProcess'])->name('compare-proses');
+    Route::get('/forum-diskusi', [ForumController::class, 'index'])->name('forum-diskusi');
+    Route::post('/forum', [ForumController::class, 'store'])->name('forum-store');
+    Route::get('/forum/{id}', [ForumController::class, 'show'])->name('forum-show');
+    Route::post('/forum/{diskusiID}/reply', [ForumController::class, 'store_reply'])->name('reply-store');
     Route::get('/test-middleware', function () {
         return 'Middleware bekerja!';
     });

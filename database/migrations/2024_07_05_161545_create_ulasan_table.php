@@ -12,15 +12,15 @@ return new class extends Migration {
     {
         Schema::create('mengulas', function (Blueprint $table) {
             $table->id('ulasanID');
-            $table->foreignId('userID')->constrained('users');
-            $table->foreignId('filmID')->constrained('films');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('film_id')->constrained('films');
             $table->integer('rating');
             $table->text('ulasan');
             $table->integer('nilai_cerita');
             $table->integer('nilai_audio');
             $table->integer('nilai_karakter');
-            $table->string('cinematography');
-            $table->string('ending');
+            $table->integer('cinematography');
+            $table->integer('ending');
             $table->timestamps();
         });
     }

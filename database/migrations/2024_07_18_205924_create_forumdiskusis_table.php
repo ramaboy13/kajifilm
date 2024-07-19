@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+class CreateForumDiskusisTable extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -13,10 +14,8 @@ return new class extends Migration {
         Schema::create('forumdiskusis', function (Blueprint $table) {
             $table->id('diskusiID');
             $table->foreignId('userID')->constrained('users');
-            $table->foreignId('adminID')->constrained('admins');
             $table->string('topik');
             $table->text('isi');
-            $table->timestamp('waktu');
             $table->timestamps();
         });
     }
@@ -28,4 +27,4 @@ return new class extends Migration {
     {
         Schema::dropIfExists('forumdiskusis');
     }
-};
+}
