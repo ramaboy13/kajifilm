@@ -2,8 +2,6 @@
 <x-layoutku2>
     <section class="forum-section py-8">
         <div class="container mx-auto px-4">
-            <h2 class="text-xl font-bold mb-4">Diskusikan film kesukaan anda dengan pengguna lain.</h2>
-
             <div class="forum-content kotakreply shadow-md rounded-lg p-6">
                 <div class="discussion-detail mb-6">
                     <div class="mb-4 p-4 border-b border-gray-200">

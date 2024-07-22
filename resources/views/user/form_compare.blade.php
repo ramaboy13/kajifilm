@@ -59,13 +59,11 @@
 <body class=" text-white min-h-screen flex items-center justify-center">
     <x-navuser :user="$user"></x-navuser>
     <div class="mt-4">
-        <h1 class="teksku">Compare Film</h1>
-        <p class="mb-8 pku">Halo Kak {{ $user->nama }} Bingung film apa yang harus ditonton? Manfaatkan komparasi film
-            baru di KojiFilm untuk
-            membandingkan film-film terbaru di seluruh dunia. Bandingkan 2 film dengan lebih dari 100 parameter terkait
-            genre, durasi, aktor, sutradara, alur cerita, efek visual, musik, dan banyak lagi untuk menemukan film yang
-            paling cocok untuk Anda. Temukan rekomendasi film yang akan memikat hati dan mengisi waktu luang Anda dengan
-            keseruan dan hiburan yang berkualitas.</p>
+        <h1 class="teksku">Bandingkan Film Favorite anda!</h1>
+        <p class="mb-8 pku">Halo Kak {{ $user->nama }}! Bingung memilih film untuk ditonton?
+            Gunakan KajiFilm untuk membandingkan film-film terbaru! Dengan fitur bandingkan kami, anda dapat
+            membandingkan dua film dengan 5 parameter, yaitu cerita, audio, karakter, cinematography, dan ending.
+            Temukan film yang paling cocok untuk Anda dengan mudah dan cepat di KajiFilm!</p>
 
         <form id="compareForm" action="{{ route('user.compare-proses') }}" method="POST">
             @csrf
@@ -91,16 +89,21 @@
         </form>
 
         <div class="flex justify-center gap-4 mt-8">
-            <button class="bg-red-500 px-4 py-2 rounded">Romance</button>
-            <button class="bg-blue-400 px-4 py-2 rounded">Cartoon</button>
-            <button class="bg-gray-800 px-4 py-2 rounded">Horror</button>
-            <button class="bg-yellow-500 px-4 py-2 rounded">Comedy</button>
-            <button class="bg-green-500 px-4 py-2 rounded">Action</button>
+            <a href="{{ route('user.home', ['kategori' => 'Romance']) }}"
+                class="bg-red-500 px-4 py-2 rounded text-white">Romance</a>
+            <a href="{{ route('user.home', ['kategori' => 'Cartoon']) }}"
+                class="bg-blue-400 px-4 py-2 rounded text-white">Cartoon</a>
+            <a href="{{ route('user.home', ['kategori' => 'Horror']) }}"
+                class="bg-gray-800 px-4 py-2 rounded text-white">Horror</a>
+            <a href="{{ route('user.home', ['kategori' => 'Comedy']) }}"
+                class="bg-yellow-500 px-4 py-2 rounded text-white">Comedy</a>
+            <a href="{{ route('user.home', ['kategori' => 'Action']) }}"
+                class="bg-green-500 px-4 py-2 rounded text-white">Action</a>
         </div>
     </div>
 
     <!-- Modal -->
-    <div id="filmModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div id="filmModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ">
         <div class="bg-white text-black p-8 rounded-lg w-1/3">
             <h2 class="text-xl font-bold mb-4">Cari Film</h2>
             <form id="searchForm">
@@ -112,7 +115,6 @@
             <button id="closeModal" class="mt-4 bg-gray-500 text-white px-4 py-2 rounded">Tutup</button>
         </div>
     </div>
-
     <script>
         let selectedFilmButton = null;
         const filmModal = document.getElementById('filmModal');

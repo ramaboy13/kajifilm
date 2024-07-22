@@ -9,13 +9,15 @@
         <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
             <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
                 <h1 class="text-3xl font-bold text-white sm:text-5xl">
-                    Halo <span>{{ $user->nama }}</span> Selamat datang di platform kami
+                    Halo <span class=" text-blue-500 border-slate-950 border-spacing-2">{{ $user->nama }}</span>
+                    Selamat datang di
+                    platform kami
                     <strong class="block font-extrabold text-rose-500 border-spacing-1 border-black"> KAJIFILM </strong>
                 </h1>
 
                 <p class="mt-4 max-w-lg sm:text-xl sm:leading-relaxed text-white">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam
-                    ea!
+                    Bandingkan film favorit Anda berdasarkan rating, genre, ulasan penonton. Dapatkan rekomendasi film
+                    yang sesuai dengan selera Anda.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-4 text-center">
                     <a href="#list-film"
@@ -77,6 +79,18 @@
                         class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Drama</a>
                     <a href="{{ route('user.home', ['kategori' => 'Comedy']) }}"
                         class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Comedy</a>
+                    <a href="{{ route('user.home', ['kategori' => 'Horor']) }}"
+                        class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Horor</a>
+                    <a href="{{ route('user.home', ['kategori' => 'Romance']) }}"
+                        class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Romance</a>
+                    <a href="{{ route('user.home', ['kategori' => 'Adventure']) }}"
+                        class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Adventure</a>
+                    <a href="{{ route('user.home', ['kategori' => 'Sci-Fi']) }}"
+                        class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Sci-Fi</a>
+                    <a href="{{ route('user.home', ['kategori' => 'Documentary']) }}"
+                        class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Documentary</a>
+                    <a href="{{ route('user.home', ['kategori' => 'Thriller']) }}"
+                        class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Thriller</a>
                     <!-- Add more categories as needed -->
                 </div>
             </div>

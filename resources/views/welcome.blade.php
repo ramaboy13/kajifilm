@@ -77,7 +77,7 @@
     <!--NavbarEnd-->
 
     <!--WelcomeHeroPage-->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light" id="home">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">

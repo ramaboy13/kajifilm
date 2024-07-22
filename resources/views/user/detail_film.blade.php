@@ -9,13 +9,13 @@
 
                 </div>
                 <div class="col-md-8">
-                    <h1 class="mt-3">{{ $film->judul }}</h1>
+                    <h1 class="mt-2">{{ $film->judul }}</h1>
                     <p><strong>Director:</strong> {{ $film->director }}</p>
                     <p><strong>Producer:</strong> {{ $film->producer }}</p>
                     <p><strong>Negara:</strong> {{ $film->negara }}</p>
                     <div class="d-flex flex-wrap mt-2">
                         @foreach (explode(',', $film->kategori) as $kategori)
-                            <span class="badge badge-secondary m-1">{{ $kategori }}</span>
+                            <i class="badge badge-secondary m-1">{{ $kategori }}</i>
                         @endforeach
                     </div><br>
                     <h2 class="mt-4">Sinopsis Film</h2>
@@ -39,45 +39,61 @@
                     @endif
 
                     <div class="mt-2">
-                        <h5 class="averagerating">Ayo <span>{{ $user->nama }}</span> berikan Rating dan ulasan versi
+                        <h5 class="averagerating">Ayo {{ $user->nama }} berikan Rating dan ulasan versi
                             kamu!</h5>
 
                         <form action="{{ route('user.ulasan-store', $film->id) }}" method="POST">
                             @csrf
                             <div class="rating-range mt-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="rating" class="form-label">Rating 0 -> 5</label>
-                                        <input type="range" id="rating" name="rating" min="1"
-                                            max="5">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="nilai_cerita" class="form-label">Cerita 0 -> 10</label>
-                                        <input type="range" id="nilai_cerita" name="nilai_cerita" min="1"
-                                            max="10">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="nilai_audio" class="form-label">Audio Cerita 0 -> 10</label>
-                                        <input type="range" id="nilai_audio" name="nilai_audio" min="1"
-                                            max="10">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="nilai_karakter" class="form-label">Karakter Cerita 0 -> 10</label>
-                                        <input type="range" id="nilai_karakter" name="nilai_karakter" min="1"
-                                            max="10">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="cinematography" class="form-label">Cinematography Cerita 0 ->
-                                            10</label>
-                                        <input type="range" id="cinematography" name="cinematography" min="1"
-                                            max="10">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="ending" class="form-label">Ending Film Cerita 0 -> 10</label>
-                                        <input type="range" id="ending" name="ending" min="1"
-                                            max="10">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="rating" class="form-label">Rating<span
+                                                    id="ratingValue">0</span></label>
+                                            <input type="range" id="rating" name="rating" min="0"
+                                                max="5" class="form-range"
+                                                oninput="updateValue('rating', 'ratingValue')">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="nilai_cerita" class="form-label">Cerita Film <span
+                                                    id="nilaiCeritaValue">0</span></label>
+                                            <input type="range" id="nilai_cerita" name="nilai_cerita" min="0"
+                                                max="10" class="form-range"
+                                                oninput="updateValue('nilai_cerita', 'nilaiCeritaValue')">
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="nilai_audio" class="form-label"> Audio <span
+                                                    id="nilaiAudioValue">0</span></label>
+                                            <input type="range" id="nilai_audio" name="nilai_audio" min="0"
+                                                max="10" class="form-range"
+                                                oninput="updateValue('nilai_audio', 'nilaiAudioValue')">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="nilai_karakter" class="form-label"> Karakter<span
+                                                    id="nilaiKarakterValue">0</span></label>
+                                            <input type="range" id="nilai_karakter" name="nilai_karakter"
+                                                min="0" max="10" class="form-range"
+                                                oninput="updateValue('nilai_karakter', 'nilaiKarakterValue')">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="cinematography" class="form-label">Cinematography <span
+                                                    id="cinematographyValue">0</span></label>
+                                            <input type="range" id="cinematography" name="cinematography"
+                                                min="0" max="10" class="form-range"
+                                                oninput="updateValue('cinematography', 'cinematographyValue')">
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="ending" class="form-label">Ending Film Cerita <span
+                                                    id="endingValue">0</span></label>
+                                            <input type="range" id="ending" name="ending" min="0"
+                                                max="10" class="form-range"
+                                                oninput="updateValue('ending', 'endingValue')">
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="mt-3 review-section">
                                     <textarea id="ulasan" name="ulasan" rows="4" class="form-control" placeholder="Tulis ulasanmu di sini..."></textarea>
                                 </div>
@@ -112,9 +128,9 @@
                                     <div class="actions">
                                         <button
                                             class="helpful-button text-white py-1.5 px-3 hover:bg-blue-600 hover:scale-105 hover:shadow text-center border border-blue-600 rounded-md h-8 text-sm flex items-center gap-1 lg:gap-2">
-                                            <svg class="w-4 h-4 ml-1.5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                stroke="currentColor">
+                                            <svg class="w-4 h-4 ml-1.5 text-gray-500"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z">
                                                 </path>
@@ -140,6 +156,29 @@
             </div>
         </section>
     </div>
+    <script>
+        function updateValue(sliderId, spanId) {
+            var slider = document.getElementById(sliderId);
+            var span = document.getElementById(spanId);
+            span.textContent = slider.value;
+        }
+    </script>
 </x-layoutku>
 
 <x-footer></x-footer>
+<style>
+    .form-range {
+        width: 100%;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2em;
+        color: #ffff;
+    }
+</style>
