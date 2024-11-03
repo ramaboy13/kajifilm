@@ -20,7 +20,8 @@
             <a href="{{ route('user.home') }}" class="text-gray-300 hover:text-white">Home</a>
             <a href="{{ route('user.form-compare') }}" class="text-gray-300 hover:text-white">Compare Film</a>
             <a href="{{ route('user.forum-diskusi') }}" class="text-gray-300 hover:text-white">Forum Diskusi</a>
-            <a href="#" id="help-link" class="text-gray-300 hover:text-white">Bantuan</a>
+            <a href="https://drive.google.com/file/d/1CQh9IQqx6pRCJ0KPbvmJoqoxFad2A0-t/view?usp=drive_link"
+                class="text-gray-300 hover:text-white">Bantuan</a>
         </div>
 
         <!-- User Profile -->
@@ -49,7 +50,8 @@
         <a href="{{ route('user.home') }}" class="text-gray-300 hover:text-white">Home</a>
         <a href="{{ route('user.form-compare') }}" class="text-gray-300 hover:text-white">Compare Film</a>
         <a href="{{ route('user.forum-diskusi') }}" class="text-gray-300 hover:text-white">Forum Diskusi</a>
-        <a href="#" id="help-link" class="text-gray-300 hover:text-white">Bantuan</a>
+        <a href="https://drive.google.com/file/d/1CQh9IQqx6pRCJ0KPbvmJoqoxFad2A0-t/view?usp=drive_link"
+            class="text-gray-300 hover:text-white">Bantuan</a>
     </div>
 </nav>
 
@@ -72,9 +74,6 @@
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobile-nav');
         const helpLink = document.getElementById('help-link');
-        const helpModal = document.getElementById('help-modal');
-        const helpModalOverlay = document.getElementById('help-modal-overlay');
-        const closeHelpModal = document.getElementById('close-help-modal');
         const userMenuButton = document.getElementById('user-menu-button');
         const userMenu = document.getElementById('user-menu');
 
@@ -95,21 +94,6 @@
             }
         });
 
-        // Help modal functionality
-        helpLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            helpModal.classList.remove('custom-hidden'); // Show modal
-            helpModalOverlay.classList.remove('custom-hidden'); // Show overlay
-        });
-
-        closeHelpModal.addEventListener('click', () => {
-            helpModal.classList.add('custom-hidden'); // Hide modal
-            helpModalOverlay.classList.add('custom-hidden'); // Hide overlay
-        });
-
-        helpModalOverlay.addEventListener('click', () => {
-            helpModal.classList.add('custom-hidden'); // Hide modal
-            helpModalOverlay.classList.add('custom-hidden'); // Hide overlay
-        });
+      
     });
 </script>

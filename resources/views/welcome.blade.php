@@ -206,7 +206,7 @@
     <!--FiturEnd-->
 
     <!--TEAM Kami-->
-    <section class="py-5 bg-light" id="team">
+    <section class="py-5 bg-light " id="team">
         <div class="container">
             <div class="row justify-content-center text-center mb-2 mb-lg-4">
                 <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">

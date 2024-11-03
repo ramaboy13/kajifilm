@@ -50,19 +50,25 @@ class LoginController extends Controller
 
     public function login_proses_user(Request $request)
     {
+        // Validasi input
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
+        // Ambil hanya email dan password dari request
         $credentials = $request->only('email', 'password');
 
+        // Coba autentikasi menggunakan guard 'user'
         if (Auth::guard('user')->attempt($credentials)) {
+            // Jika berhasil, redirect ke halaman user home
             return redirect()->route('user.home');
         } else {
-            return redirect()->back()->withErrors(['Email dan Password salah']);
+            // Jika gagal, redirect kembali dengan pesan error
+            return redirect()->back()->withErrors(['email' => 'Email atau Password salah']);
         }
     }
+
 
 
     public function logout_user()

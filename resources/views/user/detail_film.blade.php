@@ -5,7 +5,8 @@
         <section>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/' . $film->poster) }}" alt="{{ $film->poster }}">
+                    <img src="{{ asset('storage/' . $film->poster) }}" alt="{{ $film->poster }}"
+                        style="width:100% height:700px">
 
                 </div>
                 <div class="col-md-8">

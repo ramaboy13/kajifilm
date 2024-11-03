@@ -79,7 +79,7 @@
                         class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Drama</a>
                     <a href="{{ route('user.home', ['kategori' => 'Comedy']) }}"
                         class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Comedy</a>
-                    <a href="{{ route('user.home', ['kategori' => 'Horor']) }}"
+                    <a href="{{ route('user.home', ['kategori' => 'Horror']) }}"
                         class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Horor</a>
                     <a href="{{ route('user.home', ['kategori' => 'Romance']) }}"
                         class="block rounded bg-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-600">Romance</a>

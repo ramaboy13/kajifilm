@@ -24,7 +24,9 @@
 .custom-bg-active:active {
     background-color: #120a38;
 }
-
+.custom-hidden {
+    display: none;
+}
 .filmcard {
     background-color: rgba(
         169,
